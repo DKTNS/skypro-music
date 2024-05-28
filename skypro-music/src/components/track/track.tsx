@@ -1,6 +1,7 @@
 import styles from "./track.module.css";
 import classNames from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Track(){
     return(
@@ -13,20 +14,20 @@ export default function Track(){
               </svg>
             </div>
             <div className={styles.trackTitleText}>
-              <a className={styles.trackTitleLink} href="http://">
+              <Link className={styles.trackTitleLink} href="http://">
                 Guilt <span className={styles.trackTitleSpan} />
-              </a>
+              </Link>
             </div>
           </div>
           <div className={styles.trackAuthor}>
-            <a className={styles.trackAuthorLink} href="http://">
+            <Link className={styles.trackAuthorLink} href="http://">
               Nero
-            </a>
+            </Link>
           </div>
           <div className={styles.trackAlbum}>
-            <a className={styles.trackAlbumLink} href="http://">
+            <Link className={styles.trackAlbumLink} href="http://">
               Welcome Reality
-            </a>
+            </Link>
           </div>
           <div className={styles.trackTime}>
             <svg className={styles.trackTimeSvg}>
