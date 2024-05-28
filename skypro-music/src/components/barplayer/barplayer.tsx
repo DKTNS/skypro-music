@@ -62,7 +62,7 @@ export default function BarPlayer(){
                     </svg>
                   </div>
                   <div className={classNames(styles.trackPlayDislike, styles.btnIcon)}>
-                    <svg className={styles.trackPlayDislike}>
+                    <svg className={styles.trackPlayDislikeSvg}>
                       <use xlinkHref="./img/icon/sprite.svg#icon-dislike" />
                     </svg>
                   </div>
