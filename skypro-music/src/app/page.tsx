@@ -14,8 +14,9 @@ export default function Home() {
     <div className="container">
       <main className="main">
         <Nav />
-        <CenterBlock />
         <SideBar />
+        <CenterBlock />
+        
       </main>
         <BarPlayer />
       <footer className="footer" />
