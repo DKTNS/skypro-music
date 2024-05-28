@@ -1,18 +1,21 @@
 
+import Image from "next/image";
+import Link from "next/link";
+
 export default function SigninPage() {
 return (
     <div className="wrapper">
       <div className="container-enter">
         <div className="modal__block">
           <form className="modal__form-login" action="#">
-            <a href="../">
+            <Link href="../">
               <div className="modal__logo">
-                <img 
+                <Image
                 className="modal__logo" 
                 src="../img/logo_modal.png" 
-                alt="logo" />
+                alt="logo"/>
               </div>
-            </a>
+            </Link>
             <input
               className="modal__input login"
               type="text"
@@ -26,10 +29,10 @@ return (
               placeholder="Пароль"
             />
             <button className="modal__btn-enter">
-              <a href="../index.html">Войти</a>
+              <Link href="/page.tsx">Войти</Link>
             </button>
             <button className="modal__btn-signup">
-              <a href="signup.html">Зарегистрироваться</a>
+              <Link href="signup.html">Зарегистрироваться</Link>
             </button>
           </form>
         </div>
