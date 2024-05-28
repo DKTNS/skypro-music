@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-  <div className="wrapper">
+<div className="wrapper">
     <div className="container">
       <main className="main">
         <nav className="main__nav nav">
           <div className="nav__logo logo">
-            <Image 
+            <Image
             alt="Логотип skypro music" 
             className="logo__image" 
             src="/img/logo.png" 

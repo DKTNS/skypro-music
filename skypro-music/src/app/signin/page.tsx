@@ -1,9 +1,8 @@
-
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SigninPage() {
-return (
+  return (
     <div className="wrapper">
       <div className="container-enter">
         <div className="modal__block">
@@ -11,9 +10,10 @@ return (
             <Link href="../">
               <div className="modal__logo">
                 <Image
-                className="modal__logo" 
-                src="../img/logo_modal.png" 
-                alt="logo"/>
+                  className="modal__logo"
+                  src="../img/logo_modal.png"
+                  alt="logo"
+                />
               </div>
             </Link>
             <input
@@ -38,5 +38,5 @@ return (
         </div>
       </div>
     </div>
-);
+  );
 }
