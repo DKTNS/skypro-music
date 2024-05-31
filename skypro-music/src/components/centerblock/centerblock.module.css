@@ -128,7 +128,7 @@
 
 .playlistTitleCol {
   font-style: normal;
-  font-weight: 400;
+  font-weight: auto;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 2px;
@@ -144,15 +144,15 @@
 }
 
 .col01 {
-  width: 447px;
+  width: 100%;
 }
 
 .col02 {
-  width: 321px;
+  width: 100%;
 }
 
 .col03 {
-  width: 245px;
+  width: 100%;
 }
 
 .col04 {

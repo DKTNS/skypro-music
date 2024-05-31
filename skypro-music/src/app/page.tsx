@@ -15,11 +15,9 @@ export default function Home() {
   <div className={styles.wrapper}>
     <div className={styles.container}>
       <main className={styles.main}>
-        <div>
         <Nav />
         <CenterBlock />
         <SideBar />
-        </div>
       </main>
         <BarPlayer />
       <footer className={styles.footer} />
