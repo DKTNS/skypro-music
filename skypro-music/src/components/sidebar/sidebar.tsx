@@ -17,7 +17,7 @@ export default function SideBar() {
       <div className={styles.sidebarBlock}>
         <div className={styles.sidebarList}>
           <div className={styles.sidebarItem}>
-            <a className={styles.sidebarLink} href="#">
+            <Link className={styles.sidebarLink} href="#">
               <Image
                 className={styles.sidebarImg}
                 src="/img/playlist01.png"
@@ -25,7 +25,7 @@ export default function SideBar() {
                 width={113}
                 height={170}
               />
-            </a>
+            </Link>
           </div>
           <div className={styles.sidebarItem}>
             <Link className={styles.sidebarLink} href="#">

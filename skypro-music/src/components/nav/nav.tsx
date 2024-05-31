@@ -5,7 +5,7 @@ import styles from "./nav.module.css";
 
 export default function Nav() {
     return(
-        <nav className={classNames(styles.mainNav, styles.nav)}>
+      <nav className={classNames(styles.mainNav, styles.nav)}>
         <div className={styles.navLogo}>
           <Image
           alt="Логотип skypro music" 

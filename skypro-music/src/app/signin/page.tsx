@@ -1,37 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./signin.module.css"
+import classNames from "classnames";
 
 export default function SigninPage() {
   return (
-    <div className="wrapper">
-      <div className="container-enter">
-        <div className="modal__block">
-          <form className="modal__form-login" action="#">
+    <div className={styles.wrapper}>
+      <div className={styles.containerEnter}>
+        <div className={styles.modalBlock}>
+          <form className={styles.modalFormLogin} action="#">
             <Link href="../page.tsx">
-              <div className="modal__logo">
+              <div className={styles.modalLogo}>
                 <Image
-                  className="modal__logo"
+                  className={styles.modalLogo}
                   src="../img/logo_modal.png"
                   alt="logo"
                 />
               </div>
             </Link>
             <input
-              className="modal__input login"
+              className={classNames(styles.modalInput, styles.login)}
               type="text"
               name="login"
               placeholder="Почта"
             />
             <input
-              className="modal__input password"
+              className={classNames(styles.modalInput, styles.password)}
               type="password"
               name="password"
               placeholder="Пароль"
             />
-            <button className="modal__btn-enter">
+            <button className={styles.modalBtnEnter}>
               <Link href="/page.tsx">Войти</Link>
             </button>
-            <button className="modal__btn-signup">
+            <button className={styles.modalBtnEnter}>
               <Link href="./signup/signup.tsx">Зарегистрироваться</Link>
             </button>
           </form>

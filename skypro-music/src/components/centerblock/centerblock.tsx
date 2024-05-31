@@ -47,12 +47,7 @@ export default function CenterBlock() {
           жанру
         </div>
       </div>
-      <div
-        className={classNames(
-          styles.centerblockContent,
-          styles.playlistContent
-        )}
-      >
+      <div className={classNames(styles.centerblockContent, styles.playlistContent)}>
         <div className={classNames(styles.contentTitle, styles.playlistTitle)}>
           <div className={classNames(styles.playlistTitleCol, styles.col01)}>
             Трек
@@ -71,8 +66,12 @@ export default function CenterBlock() {
         </div>
         <div className={classNames(styles.contentPlaylist, styles.playlist)}>
           <Track />
+          <Track />
+          <Track />
+          <Track />
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
+    
