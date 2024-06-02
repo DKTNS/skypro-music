@@ -9,7 +9,7 @@ export default function SigninPage() {
       <div className={styles.containerEnter}>
         <div className={styles.modalBlock}>
           <form className={styles.modalFormLogin} action="#">
-            <Link href="../page.tsx">
+            <Link href="../">
               <div className={styles.modalLogo}>
                 <Image
                   className={styles.modalLogo}
@@ -34,7 +34,7 @@ export default function SigninPage() {
               <Link href="/page.tsx">Войти</Link>
             </button>
             <button className={styles.modalBtnEnter}>
-              <Link href="./signup/signup.tsx">Зарегистрироваться</Link>
+              <Link href="/signup">Зарегистрироваться</Link>
             </button>
           </form>
         </div>
