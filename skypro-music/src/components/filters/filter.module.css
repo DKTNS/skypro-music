@@ -56,8 +56,8 @@
   stroke: #ffffff;
   cursor: pointer;
 }
-.btnIcon:active .track-play__like-svg,
-.btnIcon:active .track-play__dislike-svg {
+.btnIcon:active .trackPlayLikeSvg,
+.btnIcon:active .trackPlayDislikeSvg {
   fill: #696969;
   stroke: #ffffff;
   cursor: pointer;

@@ -8,7 +8,6 @@ import CenterBlock from "@/components/centerblock/centerblock";
 import BarPlayer from "@/components/barplayer/barplayer";
 //import VolumeBar from "@/components/volumebar/volumebar";
 import styles from "./page.module.css";
-import Filters from "@/components/filters/filter";
 //import classNames from "classnames";
 
 export default function Home() {
