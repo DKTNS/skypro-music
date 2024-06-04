@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import Track from "../track/track";
 import styles from "./centerblock.module.css";
 import Filters from "../filters/filter";
+import PlayList from "../playList/playList";
 
 export default function CenterBlock() {
   return (
@@ -19,31 +19,7 @@ export default function CenterBlock() {
       </div>
       <h2 className={styles.centerblockH2}>Треки</h2>
       <Filters />
-      <div className={classNames(styles.centerblockContent, styles.playlistContent)}>
-        <div className={classNames(styles.contentTitle, styles.playlistTitle)}>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            Трек
-          </div>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            Исполнитель
-          </div>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            Альбом
-          </div>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            <svg className={styles.playlistTitleSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-watch" />
-            </svg>
-          </div>
-        </div>
-        <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-          <Track />
-          <Track />
-          <Track />
-          <Track />
-        </div>
-      </div>
-    </div> 
+      <PlayList />
+    </div>
   );
 }
-    
