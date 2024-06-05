@@ -1,4 +1,5 @@
-.filterButton, .btnText {
+.filterButton,
+.btnText {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -6,29 +7,59 @@
   border: 1px solid #ffffff;
   border-radius: 60px;
   padding: 6px 20px;
+  margin: 10px;
 }
-.filterButton:not(:last-child) {
-    margin-right: 10px;
-  }
-  .btnText:hover {
-    border-color: #d9b6ff;
-    color: #d9b6ff;
-    cursor: pointer;
-  }
-  
-  .btnIcon:hover svg {
-    fill: transparent;
-    stroke: #acacac;
-    cursor: pointer;
-  }
-  
-  .btnText:active {
-    border-color: #ad61ff;
-    color: #ad61ff;
-    cursor: pointer;
-  }
-  .btnIcon:active svg {
-    fill: transparent;
-    stroke: #ffffff;
-    cursor: pointer;
-  }
+
+.btnText:hover {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+  cursor: pointer;
+}
+.active {
+  border-color: #ad61ff;
+  color: #ad61ff;
+  cursor: pointer;
+}
+
+.btnIcon:hover svg {
+  fill: transparent;
+  stroke: #acacac;
+  cursor: pointer;
+}
+
+.btnIcon:active svg {
+  fill: transparent;
+  stroke: #ffffff;
+  cursor: pointer;
+}
+
+.filterList {
+  display: flex;
+  position: absolute;
+/*   width: 10%;
+  height: 10%; */
+  padding: 15px 15px 15px 15px;;
+  margin: 1% 0% 0% 0%;
+  gap: 10px;
+  border-radius: 15px;
+  background: #302f2f;
+  flex-direction: column;
+  /* align-items: center; */
+  opacity: 90%;
+  color: #ad61ff;
+}
+.filterListText {
+    font-family: "Montserrrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    opacity: 100%;
+    padding: 2% 2% 2% 2%;
+}
+.filterListText:hover{
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 100%;
+}

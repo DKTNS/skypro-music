@@ -1,32 +1,41 @@
+import { FilterItemType, trackType } from "@/types/types";
 import styles from "./filterItem.module.css";
 import classNames from "classnames";
 
-type FilterItemType = {
-  title: string;
-  list: string[];
-  handleFilterClick: (newFilter: string) => void;
-  isOpened: boolean;
-};
+
 
 export default function FilterItem({
-  handleFilterClick,
+  handleFilterClic,
   title,
+  isOpened,
   list,
-  isOpened
 }: FilterItemType) {
+
+
   return (
     <>
-      <div
-        onClick={() => handleFilterClick(title)}
-        className={classNames(styles.filterButton, styles.btnText)}
-      >
-        {title}
+      <div className={styles.filterblock}>
+        <div
+          onClick={() => handleFilterClic(title)}
+          className={classNames(styles.filterButton, styles.btnText, {
+            [styles.active]: isOpened,
+          })}
+        >
+          {title}
+        </div>
+        {isOpened && (
+          <ul className={styles.filterList}>
+            {list.map((item) => (
+              <li
+                className={styles.filterListText}
+                key={item}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      {isOpened && (<ul>
-        {list.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>)}
     </>
   );
 }

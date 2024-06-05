@@ -4,11 +4,15 @@ import Track from "../track/track";
 import { getAllTracks } from "@/app/api/track";
 import { trackType } from "@/types/types";
 
-export default async function PlayList() {
+type PlaylistType = {
+  setTrack: (param: trackType) => void;
+};
+
+export default async function PlayList({ setTrack }: PlaylistType) {
   let tracksData: trackType[];
   try {
     tracksData = await getAllTracks();
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error.message);
   }
   return (
@@ -34,6 +38,7 @@ export default async function PlayList() {
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
         {tracksData.map((trackData) => (
           <Track
+          onClick={() => setTrack(trackData)}
             key={trackData.id}
             name={trackData.name}
             author={trackData.author}
