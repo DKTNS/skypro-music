@@ -8,18 +8,19 @@ type userType = {
 
 export type trackType = {
   id: number;
-  name: string;
-  author: string;
   release_date: string;
-  genre: string;
   duration_in_seconds: number;
-  album: string;
   logo: string | null;
   track_file: string;
   stared_user: userType[];
-  onClick: () => void;
-
 };
+export type trackTypeLocal = {
+  name: string;
+  author: string;
+  genre: string;
+  album: string;
+  onClick: () => void;
+}
 export type FilterItemType = {
   title: string;
   list: string[];

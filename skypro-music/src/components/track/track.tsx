@@ -1,11 +1,11 @@
-import { trackType } from "@/types/types";
+import { trackType, trackTypeLocal } from "@/types/types";
 import styles from "./track.module.css";
 import classNames from "classnames";
 import Link from "next/link";
 
-export default function Track({ name, author, album, onClick}: trackType) {
+export default function Track({ name, author, album}: trackTypeLocal) {
   return (
-      <div onClick={onClick} className={styles.playlistItem}>
+      <div className={styles.playlistItem}>
         <div className={classNames(styles.playlistTrack, styles.track)}>
           <div className={styles.trackTitle}>
             <div className={styles.trackTitleImage}>

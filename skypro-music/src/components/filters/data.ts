@@ -1,6 +1,6 @@
-import { FilterItemType } from "@/types/types";
 
-export const filters: FilterItemType[] = [
+
+export const filters = [
   {
     title: "Автору",
     list: ["DJ Paul Elstak", "Dionne", "Marc Acardipane"],
