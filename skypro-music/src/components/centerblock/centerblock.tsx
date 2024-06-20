@@ -3,8 +3,11 @@ import Track from "../track/track";
 import styles from "./centerblock.module.css";
 import Filters from "../filters/filters";
 import PlayList from "../playList/playList";
+import { TrackTypeObj } from "@/types";
+import { getTracks } from "@/app/tracks";
 
-export default function CenterBlock() {
+export default async function CenterBlock() {
+  const tracksData: TrackTypeObj[] = await getTracks();
   return (
     <div className={classNames(styles.mainCenterblock, styles.centerblock)}>
       <div className={classNames(styles.centerblockSearch, styles.search)}>
@@ -19,14 +22,14 @@ export default function CenterBlock() {
         />
       </div>
       <h2 className={styles.centerblockH2}>Треки</h2>
-      <Filters />
+      <Filters tracksData={tracksData}/>
       <div
         className={classNames(
           styles.centerblockContent,
           styles.playlistContent
         )}
       >
-        <PlayList />
+        <PlayList tracksData={tracksData}/>
       </div>
     </div>
   );
