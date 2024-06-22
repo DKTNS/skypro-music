@@ -1,9 +1,9 @@
+import { TrackType } from "@/types";
 import styles from "./track.module.css";
 import classNames from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 
-export default function Track(){
+export default function Track({name, author, album}:TrackType){
     return(
         <div className={styles.playlistItem}>
         <div className={classNames(styles.playlistTrack, styles.track)}>
@@ -15,18 +15,18 @@ export default function Track(){
             </div>
             <div className={styles.trackTitleText}>
               <Link className={styles.trackTitleLink} href="http://">
-                Guilt <span className={styles.trackTitleSpan} />
+              {name} <span className={styles.trackTitleSpan} />
               </Link>
             </div>
           </div>
           <div className={styles.trackAuthor}>
             <Link className={styles.trackAuthorLink} href="http://">
-              Nero
+            { author}
             </Link>
           </div>
           <div className={styles.trackAlbum}>
             <Link className={styles.trackAlbumLink} href="http://">
-              Welcome Reality
+            {album}
             </Link>
           </div>
           <div className={styles.trackTime}>

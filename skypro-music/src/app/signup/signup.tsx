@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function SignIn(){
+export default function SignUp(){
     return(
   <div className="wrapper">
     <div className="container-signup">

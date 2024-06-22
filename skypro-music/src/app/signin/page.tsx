@@ -13,7 +13,8 @@ export default function SigninPage() {
               <div className={styles.modalLogo}>
                 <Image
                   className={styles.modalLogo}
-                  src="../img/logo_modal.png"
+                  src="/./img/logo_modal.png"
+                  width={366} height={439}
                   alt="logo"
                 />
               </div>
@@ -31,10 +32,10 @@ export default function SigninPage() {
               placeholder="Пароль"
             />
             <button className={styles.modalBtnEnter}>
-              <Link href="/page.tsx">Войти</Link>
+              <Link href="/">Войти</Link>
             </button>
             <button className={styles.modalBtnEnter}>
-              <Link href="./signup/signup.tsx">Зарегистрироваться</Link>
+              <Link href="./signup">Зарегистрироваться</Link>
             </button>
           </form>
         </div>

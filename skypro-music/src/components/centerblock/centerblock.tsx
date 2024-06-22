@@ -1,8 +1,13 @@
 import classNames from "classnames";
 import Track from "../track/track";
 import styles from "./centerblock.module.css";
+import Filters from "../filters/filters";
+import PlayList from "../playList/playList";
+import { TrackTypeObj } from "@/types";
+import { getTracks } from "@/app/tracks";
 
-export default function CenterBlock() {
+export default async function CenterBlock() {
+  const tracksData: TrackTypeObj[] = await getTracks();
   return (
     <div className={classNames(styles.mainCenterblock, styles.centerblock)}>
       <div className={classNames(styles.centerblockSearch, styles.search)}>
@@ -17,61 +22,15 @@ export default function CenterBlock() {
         />
       </div>
       <h2 className={styles.centerblockH2}>Треки</h2>
-      <div className={classNames(styles.centerblockFilter, styles.filter)}>
-        <div className={styles.filterTitle}>Искать по:</div>
-        <div
-          className={classNames(
-            styles.filterButton,
-            styles.buttonAuthor,
-            styles.btnText
-          )}
-        >
-          исполнителю
-        </div>
-        <div
-          className={classNames(
-            styles.filterButton,
-            styles.buttonYear,
-            styles.btnText
-          )}
-        >
-          году выпуска
-        </div>
-        <div
-          className={classNames(
-            styles.filterButton,
-            styles.buttonGenre,
-            styles.btnText
-          )}
-        >
-          жанру
-        </div>
+      <Filters tracksData={tracksData}/>
+      <div
+        className={classNames(
+          styles.centerblockContent,
+          styles.playlistContent
+        )}
+      >
+        <PlayList tracksData={tracksData}/>
       </div>
-      <div className={classNames(styles.centerblockContent, styles.playlistContent)}>
-        <div className={classNames(styles.contentTitle, styles.playlistTitle)}>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            Трек
-          </div>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            Исполнитель
-          </div>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            Альбом
-          </div>
-          <div className={classNames(styles.playlistTitleCol, styles.col01)}>
-            <svg className={styles.playlistTitleSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-watch" />
-            </svg>
-          </div>
-        </div>
-        <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-          <Track />
-          <Track />
-          <Track />
-          <Track />
-        </div>
-      </div>
-    </div> 
+    </div>
   );
 }
-    
