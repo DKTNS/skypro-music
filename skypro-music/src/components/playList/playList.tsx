@@ -1,3 +1,4 @@
+'use client';
 import classNames from "classnames";
 import Track from "../track/track";
 import styles from "./playlist.module.css";
@@ -15,8 +16,8 @@ type PlayListProp = {
   tracksData: TrackTypeObj[];
   setTrack: (param:TrackTypeObj) => void;
  };
-
-export default async function PlayList({ tracksData }: PlayListProp) {
+//если функцию делаем ассинхронной "sync", то не вписываем 'use client', 
+export default  function PlayList({ tracksData }: PlayListProp) {
   const [playListData, setTracksData] = useState<TrackTypeObj[]>([]);
   useEffect(() => {
     getTracks().then((data:TrackTypeObj[]) => setTracksData(data))
