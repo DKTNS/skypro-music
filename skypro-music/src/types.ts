@@ -9,6 +9,7 @@ export type TrackType = {
     name: string;
     author: string;
     album: string;
+    onClick: ()=> void;
 };
 
 export type TrackTypeObj = {

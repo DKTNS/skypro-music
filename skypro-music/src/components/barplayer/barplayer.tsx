@@ -1,12 +1,24 @@
+"use client";
+
 import VolumeBar from "../volumebar/volumebar";
 import Link from "next/link";
 import styles from "./barplayer.module.css"
 import classNames from "classnames";
+import { formatCurrentTimeDuration, formatDuration } from "@/utils/timeFormat";
+import { useRef } from "react";
+import { TrackTypeObj } from "@/types";
 
-export default function BarPlayer(){
+type PlayerType = {
+  track: TrackTypeObj;
+}
+export default function BarPlayer({track}:PlayerType){
+const audioRef = useRef<null | HTMLAudioElement>(null);
+
+
     return(
         <div className={styles.bar}>
         <div className={styles.barContent}>
+          <audio ref={audioRef} src={track.track_file}></audio>
           <div className={styles.barPlayerProgress} />
           <div className={styles.barPlayerBlock}>
             <div className={classNames(styles.barPlayer, styles.player)}>

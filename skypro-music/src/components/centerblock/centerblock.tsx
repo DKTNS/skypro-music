@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Track from "../track/track";
 import styles from "./centerblock.module.css";
 import Filters from "../filters/filters";
 import PlayList from "../playList/playList";
@@ -29,7 +28,7 @@ export default async function CenterBlock() {
           styles.playlistContent
         )}
       >
-        <PlayList tracksData={tracksData}/>
+        <PlayList setTrack={setTrack} />
       </div>
     </div>
   );

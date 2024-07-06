@@ -3,9 +3,9 @@ import styles from "./track.module.css";
 import classNames from "classnames";
 import Link from "next/link";
 
-export default function Track({name, author, album}:TrackType){
+export default function Track({name, author, album, onClick}:TrackType){
     return(
-        <div className={styles.playlistItem}>
+        <div onClick={onClick} className={styles.playlistItem}>
         <div className={classNames(styles.playlistTrack, styles.track)}>
           <div className={styles.trackTitle}>
             <div className={styles.trackTitleImage}>

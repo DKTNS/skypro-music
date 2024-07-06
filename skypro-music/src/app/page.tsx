@@ -11,7 +11,8 @@ import styles from "./page.module.css";
 //import classNames from "classnames";
 
 export default function Home() {
-  
+
+
   return (
   <div className={styles.wrapper}>
     <div className={styles.container}>
@@ -20,7 +21,7 @@ export default function Home() {
         <CenterBlock />
         <SideBar />
       </main>
-        <BarPlayer />
+        {track && (<BarPlayer track={track} />)}
       <footer className={styles.footer} />
     </div>
   </div>
