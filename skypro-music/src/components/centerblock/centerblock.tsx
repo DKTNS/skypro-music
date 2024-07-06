@@ -8,7 +8,7 @@ import { getTracks } from "@/app/tracks";
 
 export default async function CenterBlock() {
   const tracksData: TrackTypeObj[] = await getTracks();
-  const [track] = useState<TrackTypeObj | null>(null);
+  const [ setTrack] = useState<TrackTypeObj | null>(null);
   return (
     <div className={classNames(styles.mainCenterblock, styles.centerblock)}>
       <div className={classNames(styles.centerblockSearch, styles.search)}>
@@ -30,7 +30,7 @@ export default async function CenterBlock() {
           styles.playlistContent
         )}
       >
-        <PlayList track={track} />
+        <PlayList setTrack={setTrack} />
       </div>
     </div>
   );

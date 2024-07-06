@@ -48,7 +48,7 @@ export default  function PlayList({ tracksData }: PlayListProp) {
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
         {tracksData.map((tracksData) => (
           <Track
-            onClick={()=>setTrack(tracksData)}
+            onClick={()=>setTracksData(setTracksData)}
             key={tracksData.id}
             name={tracksData.name}
             author={tracksData.author}

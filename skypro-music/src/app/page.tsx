@@ -25,7 +25,7 @@ export default function Home() {
         <CenterBlock />
         <SideBar />
       </main>
-      {track && <BarPlayer track={tracks} />}
+      {track && <BarPlayer track={track} />}
       <footer className={styles.footer} />
     </div>
   </div>
