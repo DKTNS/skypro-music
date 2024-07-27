@@ -1,12 +1,22 @@
+"use client";
 import VolumeBar from "../volumebar/volumebar";
 import Link from "next/link";
-import styles from "./barplayer.module.css"
+import styles from "./barplayer.module.css";
 import classNames from "classnames";
+import { useRef } from "react";
+import { TrackType, TrackTypeObj } from "@/types";
+type PlayerType = {
+  track: TrackTypeObj;
+};
 
-export default function BarPlayer(){
-    return(
-        <div className={styles.bar}>
+export default function BarPlayer({ track }: PlayerType) {
+  const audioRef = useRef<null | HTMLAudioElement>(null);
+
+  return (
+    <>
+      <div className={styles.bar}>
         <div className={styles.barContent}>
+          <audio ref={audioRef} src={track.track_file}></audio>
           <div className={styles.barPlayerProgress} />
           <div className={styles.barPlayerBlock}>
             <div className={classNames(styles.barPlayer, styles.player)}>
@@ -26,18 +36,27 @@ export default function BarPlayer(){
                     <use xlinkHref="img/icon/sprite.svg#icon-next" />
                   </svg>
                 </div>
-                <div className={classNames(styles.playerBtnPepeat, styles.btnIcon)}>
+                <div
+                  className={classNames(styles.playerBtnPepeat, styles.btnIcon)}
+                >
                   <svg className={styles.playerBtnRepeatSvg}>
                     <use xlinkHref="img/icon/sprite.svg#icon-repeat" />
                   </svg>
                 </div>
-                <div className={classNames(styles.playerBtnPhuffle, styles.btnIcon)}>
+                <div
+                  className={classNames(
+                    styles.playerBtnPhuffle,
+                    styles.btnIcon
+                  )}
+                >
                   <svg className={styles.playerBtnShuffleSvg}>
                     <use xlinkHref="img/icon/sprite.svg#icon-shuffle" />
                   </svg>
                 </div>
               </div>
-              <div className={classNames(styles.playerTrackPlay, styles.trackPlay)}>
+              <div
+                className={classNames(styles.playerTrackPlay, styles.trackPlay)}
+              >
                 <div className={styles.trackPlayContain}>
                   <div className={styles.trackPlayImage}>
                     <svg className={styles.trackPlaySvg}>
@@ -45,23 +64,26 @@ export default function BarPlayer(){
                     </svg>
                   </div>
                   <div className={styles.trackPlayAuthor}>
-                    <Link className={styles.trackPlayAuthorLink} href="http://">
-                      Ты та...
-                    </Link>
+                    <span className={styles.trackPlayAuthorLink}>Ты та...</span>
                   </div>
                   <div className={styles.trackPlayAlbum}>
-                    <Link className={styles.trackPlayAlbumLink} href="http://">
-                      Баста
-                    </Link>
+                    <span className={styles.trackPlayAlbumLink}>Баста</span>
                   </div>
                 </div>
                 <div className={styles.trackPlayLikeDis}>
-                  <div className={classNames(styles.trackPlayLike, styles.btnIcon)}>
+                  <div
+                    className={classNames(styles.trackPlayLike, styles.btnIcon)}
+                  >
                     <svg className={styles.trackPlayLikeSvg}>
                       <use xlinkHref="./img/icon/sprite.svg#icon-like" />
                     </svg>
                   </div>
-                  <div className={classNames(styles.trackPlayDislike, styles.btnIcon)}>
+                  <div
+                    className={classNames(
+                      styles.trackPlayDislike,
+                      styles.btnIcon
+                    )}
+                  >
                     <svg className={styles.trackPlayDislikeSvg}>
                       <use xlinkHref="./img/icon/sprite.svg#icon-dislike" />
                     </svg>
@@ -73,5 +95,6 @@ export default function BarPlayer(){
           </div>
         </div>
       </div>
-    );
+    </>
+  );
 }

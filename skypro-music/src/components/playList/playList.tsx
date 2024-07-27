@@ -2,9 +2,24 @@ import classNames from "classnames";
 import Track from "../track/track";
 import styles from "./playlist.module.css";
 import { TrackTypeObj } from "@/types";
+import { useEffect, useState } from "react";
+import { getTracks } from "@/app/tracks";
+import { error } from "console";
 
-type PlayListProp = { tracksData: TrackTypeObj[] };
-export default async function PlayList({ tracksData }: PlayListProp) {
+type PlayListProp = { 
+  tracksData: TrackTypeObj[],
+  setTrack: (param:TrackTypeObj) => void,
+ }
+
+
+export default  function PlayList({ tracksData }: PlayListProp) {
+  const [tracks, setTrack] = useState<TrackTypeObj[]>([]);
+ useEffect(() => {
+  getTracks().then((tracksData:TrackTypeObj[]) => setTrack(tracksData))
+  .catch((error:Error) =>{
+    throw Error(error.message);
+  })
+ }, []);
   return (
     <div
       className={classNames(styles.centerblockContent, styles.contentPlaylist)}
@@ -28,6 +43,7 @@ export default async function PlayList({ tracksData }: PlayListProp) {
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
         {tracksData.map((tracksData) => (
           <Track
+            onClick={()  => setTrack(tracksData)}
             key={tracksData.id}
             name={tracksData.name}
             author={tracksData.author}
