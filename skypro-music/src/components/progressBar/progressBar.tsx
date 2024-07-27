@@ -5,8 +5,9 @@ type ProgressBarType = {
     max: number | undefined,
     value: number,
     step: number,
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+    onChange:(e: ChangeEvent<HTMLInputElement>) => void,
 }
+
 
 export default function ProgressBar({ max = 0, value, step, onChange }: ProgressBarType) {
   return (
