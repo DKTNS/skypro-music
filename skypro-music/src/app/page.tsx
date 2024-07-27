@@ -1,4 +1,4 @@
-
+'use client';
 import Nav from "@/components/nav/nav";
 import SideBar from "@/components/sidebar/sidebar";
 import CenterBlock from "@/components/centerblock/centerblock";
@@ -7,6 +7,7 @@ import BarPlayer from "@/components/barplayer/barplayer";
 import styles from "./page.module.css";
 
 import { TrackTypeObj } from "@/types";
+import { useState } from "react";
 //import classNames from "classnames";
 
 export default function Home() {
