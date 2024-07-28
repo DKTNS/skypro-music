@@ -1,11 +1,10 @@
 'use client'
 import classNames from "classnames";
-import Track from "../track/track";
 import styles from "./centerblock.module.css";
 import Filters from "../filters/filters";
-import PlayList from "../playList/playList";
 import { TrackTypeObj } from "@/types";
 import { useState } from "react";
+import { PlayList } from "../playList/playList";
 
 export default  function CenterBlock() {
   //const tracksData: TrackTypeObj[] = await getTracks();

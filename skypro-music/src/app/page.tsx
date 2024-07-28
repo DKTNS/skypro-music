@@ -8,7 +8,9 @@ import styles from "./page.module.css";
 
 import { TrackTypeObj } from "@/types";
 import { useState } from "react";
-//import classNames from "classnames";
+import { PlayList } from "@/components/playList/playList";
+//import { PlayList } from "@/components/playList/playList";
+
 
 export default function Home() {
   const [track] = useState<TrackTypeObj | null>(null);

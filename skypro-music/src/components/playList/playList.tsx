@@ -11,7 +11,7 @@ type PlayListProp = {
   setTrack: (param: TrackTypeObj[]) => void;
 };
 
-export default function PlayList({ tracksData, setTrack }: PlayListProp) {
+export  function PlayList({ tracksData, setTrack }: PlayListProp) {
   const [tracks, setTracks] = useState<TrackTypeObj[]>([]);
 
   useEffect(() => {
