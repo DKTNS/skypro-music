@@ -6,6 +6,7 @@ export type FilteItemType = {
 };
 
 export type TrackType = {
+    key: string,
     name: string;
     author: string;
     album: string;

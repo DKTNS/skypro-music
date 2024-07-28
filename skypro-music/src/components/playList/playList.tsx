@@ -1,22 +1,22 @@
 import classNames from "classnames";
 import Track from "../track/track";
 import styles from "./playlist.module.css";
-import { TrackTypeObj } from "@/types";
+import { TrackType, TrackTypeObj } from "@/types";
 import { useEffect, useState } from "react";
 import { getTracks } from "@/app/tracks";
 import { error } from "console";
 
 type PlayListProp = {
-  tracksData: TrackTypeObj[];
-  setTrack: (param: TrackTypeObj[]) => void;
+  trackData: TrackType[];
+  setTrack: (param: TrackType[]) => void;
 };
 
-export  function PlayList({ tracksData, setTrack }: PlayListProp) {
-  const [tracks, setTracks] = useState<TrackTypeObj[]>([]);
+export  function PlayList({ setTrack }: PlayListProp) {
+  const [tracks, setTracks] = useState<TrackType[]>([]);
 
   useEffect(() => {
     getTracks()
-      .then((data: TrackTypeObj[]) => setTracks(data)) // Обернуть data в массив перед передачей в setTracks
+      .then((data: TrackType[]) => setTracks(data)) // Обернуть data в массив перед передачей в setTracks
       .catch((error: Error) => {
         throw new Error(error.message);
       });
@@ -42,13 +42,13 @@ export  function PlayList({ tracksData, setTrack }: PlayListProp) {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-      {tracksData.map((trackData) => (
+      {tracks.map((trackData) => (
           <Track
-            onClick={() => setTrack([trackData])}
-            key={trackData.id}
-            name={trackData.name}
-            author={trackData.author}
-            album={trackData.album}
+            onClick={() => setTrack(trackData)}
+            key={tracks.id}
+            name={tracks.name}
+            author={tracks.author}
+            album={tracks.album}
           />
         ))}
       </div>
