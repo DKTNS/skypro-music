@@ -31,7 +31,7 @@ export default  function CenterBlock() {
           styles.playlistContent
         )}
       >
-        <PlayList setTrack={setTrack} tracksData={[]}/>
+        <PlayList setTrack={setTrack}/>
       </div>
     </div>
   );
