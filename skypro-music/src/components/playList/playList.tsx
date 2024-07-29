@@ -4,7 +4,6 @@ import styles from "./playlist.module.css";
 import { TrackType, TrackTypeObj } from "@/types";
 import { useEffect, useState } from "react";
 import { getTracks } from "@/app/tracks";
-import { error } from "console";
 
 type PlayListProp = {
   trackData: TrackType[];
@@ -12,8 +11,8 @@ type PlayListProp = {
 };
 
 export  function PlayList({ setTrack }: PlayListProp) {
-  const [tracks, setTracks] = useState<TrackType[]>([]);
-
+  //const [tracks, setTracks] = useState<TrackType[]>([]);
+  const [tracks, setTracks] = useState<TrackType>({} as TrackType); //изменил тип переменной tracks на TrackType 
   useEffect(() => {
     getTracks()
       .then((data: TrackType[]) => setTracks(data)) // Обернуть data в массив перед передачей в setTracks
@@ -42,7 +41,9 @@ export  function PlayList({ setTrack }: PlayListProp) {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-      {tracks.map((trackData) => (
+      {/* Проверка Array.isArray(tracks) перед вызовом метода map, 
+      чтобы убедиться, что tracks является массивом перед его использованием. */}
+      {Array.isArray(tracks) && tracks.map((trackData) => (
           <Track
             onClick={() => setTrack(trackData)}
             key={tracks.id}

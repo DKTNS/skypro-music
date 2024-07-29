@@ -8,7 +8,7 @@ import { PlayList } from "../playList/playList";
 
 export default  function CenterBlock() {
   //const tracksData: TrackTypeObj[] = await getTracks();
-  const [ tracks, setTrack] = useState<TrackTypeObj[] | null>(null);
+  const [ tracks, setTracks] = useState<TrackTypeObj[] | null>(null);
   const tracksData: TrackTypeObj[] = []; 
   return (
     <div className={classNames(styles.mainCenterblock, styles.centerblock)}>
@@ -31,7 +31,7 @@ export default  function CenterBlock() {
           styles.playlistContent
         )}
       >
-        <PlayList setTrack={setTrack}/>
+        <PlayList setTracks={setTracks}/>
       </div>
     </div>
   );
