@@ -5,9 +5,14 @@ export async function getTracks() {
   if (!res.ok) {
     throw new Error("Ошибка получения данных");
   }
-  return res.json();
+  const data = await res.json();
+  return data.data;
 }
-
+// const res = await fetch(apiUrl);
+// if (!res.ok) {
+//   throw new Error("Ошибка получения данных");
+// }
+// return res.json();
 // Описание запроса	Пример
 // Получить все треки	GET - /catalog/track/all/
 // Получить трек по id	GET - /catalog/track/<id>/

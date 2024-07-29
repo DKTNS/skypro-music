@@ -15,7 +15,7 @@ export  function PlayList({ setTrack }: PlayListProp) {
   const [tracks, setTracks] = useState<TrackType>({} as TrackType); //изменил тип переменной tracks на TrackType 
   useEffect(() => {
     getTracks()
-      .then((data: TrackType[]) => setTracks(data)) // Обернуть data в массив перед передачей в setTracks
+      .then((data: TrackType) => setTracks(data)) // Обернуть data в массив перед передачей в setTracks
       .catch((error: Error) => {
         throw new Error(error.message);
       });
@@ -46,10 +46,10 @@ export  function PlayList({ setTrack }: PlayListProp) {
       {Array.isArray(tracks) && tracks.map((trackData) => (
           <Track
             onClick={() => setTrack(trackData)}
-            key={tracks.id}
-            name={tracks.name}
-            author={tracks.author}
-            album={tracks.album}
+            key={trackData.id}
+            name={trackData.name}
+            author={trackData.author}
+            album={trackData.album}
           />
         ))}
       </div>
