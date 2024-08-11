@@ -1,13 +1,15 @@
+'use client'
 import classNames from "classnames";
-import Track from "../track/track";
 import styles from "./centerblock.module.css";
 import Filters from "../filters/filters";
-import PlayList from "../playList/playList";
 import { TrackTypeObj } from "@/types";
-import { getTracks } from "@/app/tracks";
+import { useState } from "react";
+import { PlayList } from "../playList/playList";
 
-export default async function CenterBlock() {
-  const tracksData: TrackTypeObj[] = await getTracks();
+export default  function CenterBlock() {
+  //const tracksData: TrackTypeObj[] = await getTracks();
+  const [ tracks, setTracks] = useState<TrackTypeObj[] | null>(null);
+  const tracksData: TrackTypeObj[] = []; 
   return (
     <div className={classNames(styles.mainCenterblock, styles.centerblock)}>
       <div className={classNames(styles.centerblockSearch, styles.search)}>
@@ -22,14 +24,14 @@ export default async function CenterBlock() {
         />
       </div>
       <h2 className={styles.centerblockH2}>Треки</h2>
-      <Filters tracksData={tracksData}/>
+      <Filters tracksData={ tracksData }/>
       <div
         className={classNames(
           styles.centerblockContent,
           styles.playlistContent
         )}
       >
-        <PlayList tracksData={tracksData}/>
+        <PlayList setTracks={setTracks}/>
       </div>
     </div>
   );

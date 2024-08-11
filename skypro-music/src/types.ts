@@ -6,6 +6,7 @@ export type FilteItemType = {
 };
 
 export type TrackType = {
+    key: string,
     name: string;
     author: string;
     album: string;
@@ -30,4 +31,10 @@ export type userType = {
     first_name: string;
     last_name: string;
     email: string;
-}
+};
+
+export type ErrorType = {
+    error: Error;
+    reset: () => void;
+  };
+  

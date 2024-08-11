@@ -1,10 +1,25 @@
 import classNames from "classnames";
 import Track from "../track/track";
 import styles from "./playlist.module.css";
-import { TrackTypeObj } from "@/types";
+import { TrackType, TrackTypeObj } from "@/types";
+import { useEffect, useState } from "react";
+import { getTracks } from "@/app/tracks";
 
-type PlayListProp = { tracksData: TrackTypeObj[] };
-export default async function PlayList({ tracksData }: PlayListProp) {
+type PlayListProp = {
+  trackData: TrackType[];
+  setTrack: (param: TrackType[]) => void;
+};
+
+export  function PlayList({ setTrack }: PlayListProp) {
+  //const [tracks, setTracks] = useState<TrackType[]>([]);
+  const [tracks, setTracks] = useState<TrackType>({} as TrackType); //изменил тип переменной tracks на TrackType 
+  useEffect(() => {
+    getTracks()
+      .then((data: TrackType) => setTracks(data)) // Обернуть data в массив перед передачей в setTracks
+      .catch((error: Error) => {
+        throw new Error(error.message);
+      });
+  }, []);
   return (
     <div
       className={classNames(styles.centerblockContent, styles.contentPlaylist)}
@@ -26,12 +41,15 @@ export default async function PlayList({ tracksData }: PlayListProp) {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-        {tracksData.map((tracksData) => (
+      {/* Проверка Array.isArray(tracks) перед вызовом метода map, 
+      чтобы убедиться, что tracks является массивом перед его использованием. */}
+      {Array.isArray(tracks) && tracks.map((trackData) => (
           <Track
-            key={tracksData.id}
-            name={tracksData.name}
-            author={tracksData.author}
-            album={tracksData.album}
+            onClick={() => setTrack(trackData)}
+            key={trackData.id}
+            name={trackData.name}
+            author={trackData.author}
+            album={trackData.album}
           />
         ))}
       </div>

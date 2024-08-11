@@ -1,41 +1,46 @@
-import { TrackType } from "@/types";
-import styles from "./track.module.css";
-import classNames from "classnames";
-import Link from "next/link";
 
-export default function Track({name, author, album}:TrackType){
-    return(
-        <div className={styles.playlistItem}>
-        <div className={classNames(styles.playlistTrack, styles.track)}>
-          <div className={styles.trackTitle}>
-            <div className={styles.trackTitleImage}>
-              <svg className={styles.trackTitleSvg}>
-                <use xlinkHref="img/icon/sprite.svg#icon-note" />
-              </svg>
-            </div>
-            <div className={styles.trackTitleText}>
-              <Link className={styles.trackTitleLink} href="http://">
-              {name} <span className={styles.trackTitleSpan} />
-              </Link>
-            </div>
-          </div>
-          <div className={styles.trackAuthor}>
-            <Link className={styles.trackAuthorLink} href="http://">
-            { author}
-            </Link>
-          </div>
-          <div className={styles.trackAlbum}>
-            <Link className={styles.trackAlbumLink} href="http://">
-            {album}
-            </Link>
-          </div>
-          <div className={styles.trackTime}>
-            <svg className={styles.trackTimeSvg}>
-              <use xlinkHref="img/icon/sprite.svg#icon-like" />
-            </svg>
-            <span className={styles.trackTimeText}>4:44</span>
-          </div>
+import styles from "./track.module.css";
+//import classNames from "classnames";
+
+
+type TrackType = {
+name:string;
+author:string;
+album:string;
+onClick: () => void;
+};
+
+
+export default function Track({ name, author, album, onClick}: TrackType){
+  //const {currentTrack, isPlaying} = useAppSelector((state) => state.playlist);
+ 
+
+
+  return (
+
+    <div onClick={onClick} className={styles.playlistTrack}>
+      <div className={styles.trackTitle}>
+        <div className={styles.trackTitleImage}>
+        </div>
+
+        <div className={styles.trackTitleText}>
+          <span className={styles.trackTitleLink}>
+            {name} <span className={styles.trackTitleSpan} />
+          </span>
         </div>
       </div>
-    );
+      <div className={styles.trackAuthor}>
+        <span className={styles.trackAuthorLink}>{author}</span>
+      </div>
+      <div className={styles.trackAlbum}>
+        <span className={styles.trackAlbumLink}>{album}</span>
+      </div>
+      <div className={styles.trackTime}>
+        <svg className={styles.trackTimeSvg}>
+          <use xlinkHref="/img/icon/sprite.svg#icon-like" />
+        </svg>
+        <span className={styles.trackTimeText}>4:44</span>
+      </div>
+    </div>
+  );
 }
